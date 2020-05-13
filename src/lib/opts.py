@@ -25,13 +25,13 @@ class opts(object):
                                   'in the exp dir if load_model is empty.') 
 
     # system
-    self.parser.add_argument('--gpus', default='0, 1',
+    self.parser.add_argument('--gpus', default='0,1',
                              help='-1 for CPU, use comma for multiple gpus')
     self.parser.add_argument('--num_workers', type=int, default=8,
                              help='dataloader threads. 0 for single-thread.')
     self.parser.add_argument('--not_cuda_benchmark', action='store_true',
                              help='disable when the input size is not fixed.')
-    self.parser.add_argument('--seed', type=int, default=317, 
+    self.parser.add_argument('--seed', type=int, default=610, 
                              help='random seed') # from CornerNet
 
     # log
@@ -120,7 +120,7 @@ class opts(object):
     self.parser.add_argument('--data_cfg', type=str,
                              default='../src/lib/cfg/data.json',
                              help='load data from cfg')
-    self.parser.add_argument('--data_dir', type=str, default='/data/yfzhang/MOT/JDE')
+    self.parser.add_argument('--data_dir', type=str, default='/workspace/FairMOT')
 
     # loss
     self.parser.add_argument('--mse_loss', action='store_true',
@@ -139,7 +139,7 @@ class opts(object):
                              help='reid loss: ce | triplet')
     self.parser.add_argument('--id_weight', type=float, default=1,
                              help='loss weight for id')
-    self.parser.add_argument('--reid_dim', type=int, default=512,
+    self.parser.add_argument('--reid_dim', type=int, default=128,
                              help='feature dim for reid')
 
     self.parser.add_argument('--norm_wh', action='store_true',

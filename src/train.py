@@ -92,6 +92,5 @@ def main(opt):
 
 
 if __name__ == '__main__':
-    os.environ['CUDA_VISIBLE_DEVICES'] = '0, 1'
     opt = opts().parse()
     main(opt)
