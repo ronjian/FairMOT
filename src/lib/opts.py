@@ -35,7 +35,7 @@ class opts(object):
                              help='random seed') # from CornerNet
 
     # log
-    self.parser.add_argument('--print_iter', type=int, default=0, 
+    self.parser.add_argument('--print_iter', type=int, default=1, 
                              help='disable progress bar and print to screen.')
     self.parser.add_argument('--hide_data_time', action='store_true',
                              help='not display time during training.')
@@ -73,7 +73,7 @@ class opts(object):
                              help='learning rate for batch size 32.')
     self.parser.add_argument('--lr_step', type=str, default='20,27',
                              help='drop learning rate by 10.')
-    self.parser.add_argument('--num_epochs', type=int, default=30,
+    self.parser.add_argument('--num_epochs', type=int, default=60,
                              help='total training epochs.')
     self.parser.add_argument('--batch_size', type=int, default=12,
                              help='batch size')
