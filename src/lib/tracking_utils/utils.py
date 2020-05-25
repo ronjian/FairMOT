@@ -19,6 +19,11 @@ def mkdir_if_missing(d):
     if not osp.exists(d):
         os.makedirs(d)
 
+def re_mkdir(d):
+    if osp.exists(d):
+        import shutil
+        shutil.rmtree(d)
+    mkdir_if_missing(d)
 
 def float3(x):  # format floats to 3 decimals
     return float(format(x, '.3f'))

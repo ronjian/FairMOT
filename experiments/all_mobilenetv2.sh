@@ -4,7 +4,7 @@ mot \
 --arch mobilenetv2_7 \
 --exp_id all_mobilenetv2_7 \
 --head_conv 256 \
---num_epochs 60 \
+--num_epochs 70 \
 --lr_step 40,54 \
 --gpus 0,1 \
 --reid_dim 128 \
@@ -18,5 +18,7 @@ mot \
 --head_conv 256 \
 --arch mobilenetv2_7 \
 --reid_dim 128 \
---load_model /workspace/FairMOT/exp/mot/all_mobilenetv2_7/model_20.pth \
+--gpu 1 \
+--input-video ../videos/MOT17-03.mp4 \
+--load_model /workspace/FairMOT/exp/mot/all_mobilenetv2_7/model_last.pth \
 --conf_thres 0.4

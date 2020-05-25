@@ -8,10 +8,11 @@ import logging
 import os
 import os.path as osp
 from opts import opts
-from tracking_utils.utils import mkdir_if_missing
+from tracking_utils.utils import mkdir_if_missing, re_mkdir
 from tracking_utils.log import logger
 import datasets.dataset.jde as datasets
 from track import eval_seq
+import torch
 
 
 logger.setLevel(logging.INFO)
@@ -19,7 +20,8 @@ logger.setLevel(logging.INFO)
 
 def demo(opt):
     result_root = opt.output_root if opt.output_root != '' else '.'
-    mkdir_if_missing(result_root)
+    # mkdir_if_missing(result_root)
+    re_mkdir(result_root)
 
     logger.info('Starting tracking...')
     dataloader = datasets.LoadVideo(opt.input_video, opt.img_size)
@@ -41,4 +43,9 @@ def demo(opt):
 
 if __name__ == '__main__':
     opt = opts().init()
+    print('opt.gpus_str', opt.gpus_str)
+    print('opt.gpus', opt.gpus)
+    os.environ['CUDA_VISIBLE_DEVICES'] = opt.gpus_str
+    opt.device = torch.device('cuda' if opt.gpus[0] >= 0 else 'cpu')
+    print('opt.device', opt.device)
     demo(opt)
