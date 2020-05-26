@@ -19,6 +19,6 @@ mot \
 --arch mobilenetv2_7 \
 --reid_dim 128 \
 --gpu 1 \
---input-video ../videos/MOT17-03.mp4 \
+--input-video ../videos/MOT20-04.mp4 \
 --load_model /workspace/FairMOT/exp/mot/all_mobilenetv2_7/model_last.pth \
 --conf_thres 0.4
